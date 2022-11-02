@@ -102,7 +102,7 @@ async fn main() -> Result<()> {
                                     "to"
                                 };
                                 let content = format!(
-                                    ":turkey: **A gobbler transfer {to_from} watcher** :turkey:"
+                                    ":turkey: **A gobbler transfer {to_from} Watcher** :turkey:"
                                 );
                                 let content = format!("{}\n{:#?}", content, transfer);
                                 let res = discord.send(|message| message.content(&content)).await;
