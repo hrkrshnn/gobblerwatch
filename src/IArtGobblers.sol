@@ -25,5 +25,4 @@ interface ArtGobblers {
     event GobblersRevealed(address indexed user, uint256 numGobblers, uint256 lastRevealedId);
 
     event ArtGobbled(address indexed user, uint256 indexed gobblerId, address indexed nft, uint256 id);
-
 }
