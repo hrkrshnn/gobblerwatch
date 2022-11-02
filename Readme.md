@@ -2,7 +2,7 @@
 
 ## Setup
 
-An example env file can be found in [env.example](./env.example).
+An example env file can be found in [env.example](./.env.example).
 
 ## Running
 
