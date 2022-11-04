@@ -4,7 +4,7 @@ use dotenv::dotenv;
 use ethers::prelude::*;
 use gobbler_bindings::art_gobblers::ArtGobblersEvents;
 use gobbler_bindings::goo::GooEvents;
-use log::{debug, info};
+use log::{debug, error, info};
 use node::Node;
 use std::sync::Arc;
 use tokio::sync::mpsc;
@@ -156,6 +156,8 @@ async fn main() -> Result<()> {
                 }
             }
         }
+
+        error!("Watching ended");
         Ok::<(), eyre::Report>(())
     });
 
