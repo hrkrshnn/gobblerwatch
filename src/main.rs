@@ -43,7 +43,7 @@ async fn main() -> Result<()> {
                 .address(vec![art_gobblers, goo])
                 .from_block(block_no);
             let filter = if block_no + (chunk_size as u64) < current_block {
-                filter.to_block(block_no + chunk_size as u64)
+                filter.to_block(block_no + (chunk_size as u64) - 1)
             } else {
                 filter.from_block(current_block)
             };
