@@ -118,6 +118,12 @@ async fn main() -> Result<()> {
                                 info!("Sent GooBalanceUpdatedFilter: {:?}", res);
                             }
                         }
+                        ArtGobblersEvents::GobblersRevealedFilter(grf) => {
+                            let content = ":troll: **Gobblers Revealed** :troll:".to_string();
+                            let content = format!("{}\n{:#?}", content, grf);
+                            let res = discord.send(|message| message.content(&content)).await;
+                            info!("Sent GobblersRevealedFilter: {:?}", res);
+                        }
                         _ => (),
                     }
                 }
