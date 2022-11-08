@@ -124,6 +124,20 @@ async fn main() -> Result<()> {
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GobblersRevealedFilter: {:?}", res);
                         }
+                        ArtGobblersEvents::RandomnessRequestedFilter(rrf) => {
+                            let content =
+                                ":game_die: **Randomness requested** :game_die:".to_string();
+                            let content = format!("{}\n{:#?}", content, rrf);
+                            let res = discord.send(|message| message.content(&content)).await;
+                            info!("Sent RandomnessRequestedFilter: {:?}", res);
+                        }
+                        ArtGobblersEvents::RandomnessFulfilledFilter(rff) => {
+                            let content =
+                                ":game_die: **Randomness fulfilled** :game_die:".to_string();
+                            let content = format!("{}\n{:#?}", content, rff);
+                            let res = discord.send(|message| message.content(&content)).await;
+                            info!("Sent RandomnessFulfilledFilter: {:?}", res);
+                        }
                         _ => (),
                     }
                 }
