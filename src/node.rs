@@ -22,13 +22,13 @@ impl Node {
         info!("http_endpoint: {:?}", http_endpoint);
         info!("ws_endpoint: {:?}", ws_endpoint);
 
-        // Polling duration of 1 second
+        // Polling duration of 10 second
         let http_client = Provider::<Http>::try_from(http_endpoint.clone())?
-            .interval(Duration::from_millis(1000u64));
+            .interval(Duration::from_millis(10000u64));
 
         let ws = Ws::connect(ws_endpoint.clone()).await?;
-        // Polling duration of 1 second
-        let ws_client = Provider::new(ws).interval(Duration::from_millis(1000));
+        // Polling duration of 10 second
+        let ws_client = Provider::new(ws).interval(Duration::from_millis(10000));
 
         let http_client = Arc::new(http_client);
         let ws_client = Arc::new(ws_client);
