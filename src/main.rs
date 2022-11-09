@@ -62,7 +62,7 @@ async fn main() -> Result<()> {
             .address(vec![art_gobblers, goo])
             .from_block(BlockNumber::Latest);
 
-        let mut stream = node_current.ws_client.subscribe_logs(&filter).await?;
+        let mut stream = node_current.http_client.watch(&filter).await?;
 
         while let Some(event) = stream.next().await {
             tx_current.send(event).await?;
