@@ -8,7 +8,7 @@ edition = "2021"
 [dependencies]
 ethers = { git = "https://github.com/gakonst/ethers-rs.git", features = ["ws", "abigen", "rustls", "openssl"] }
 eyre = "0.6.8"
-tokio = { version = "1.22.0", features = ["full"] }
+tokio = { version = "1.23.0", features = ["full"] }
 log = "0.4.17"
 env_logger = "0.10.0"
 gobbler_bindings = { path = "./gobbler_bindings" }
