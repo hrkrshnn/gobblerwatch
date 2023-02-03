@@ -138,6 +138,12 @@ async fn main() -> Result<()> {
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent RandomnessFulfilledFilter: {:?}", res);
                         }
+                        ArtGobblersEvents::LegendaryGobblerMintedFilter(lgmf) => {
+                            let content = ":goat: **Legendary Gobbler Minted** :goat:".to_string();
+                            let content = format!("{}\n{:#?}", content, lgmf);
+                            let res = discord.send(|message| message.content(&content)).await;
+                            info!("Sent LegendaryGobblerMintedFilter: {:?}", res);
+                        }
                         _ => (),
                     }
                 }
