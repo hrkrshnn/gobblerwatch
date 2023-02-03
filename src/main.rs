@@ -87,7 +87,7 @@ async fn main() -> Result<()> {
                                 ":scream: **Someone purchased a gobbler** :scream:"
                             }
                             .to_string();
-                            let content = format!("{}\n{:#?}", content, gpf);
+                            let content = format!("{content}\n{gpf:#?}");
 
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GobblerPurchasedFilter: {:?}", res);
@@ -101,46 +101,35 @@ async fn main() -> Result<()> {
                                 } else {
                                     "to"
                                 };
-                                let content = format!(
-                                    ":turkey: **A gobbler transfer {to_from} Watcher** :turkey:"
-                                );
-                                let content = format!("{}\n{:#?}", content, transfer);
+                                let content = format!(":turkey: **A gobbler transfer {to_from} Watcher** :turkey:\n{transfer:#?}");
                                 let res = discord.send(|message| message.content(&content)).await;
                                 info!("Sent TransferFilter: {:?}", res);
                             }
                         }
                         ArtGobblersEvents::GooBalanceUpdatedFilter(gbuf) => {
                             if gbuf.user == watch_address {
-                                let content =
-                                    ":eyes: **Update of Watcher's goo balance** :eyes:".to_string();
-                                let content = format!("{}\n{:#?}", content, gbuf);
+                                let content = format!(":eyes: **Update of Watcher's goo balance** :eyes:\n{gbuf:#?}");
                                 let res = discord.send(|message| message.content(&content)).await;
                                 info!("Sent GooBalanceUpdatedFilter: {:?}", res);
                             }
                         }
                         ArtGobblersEvents::GobblersRevealedFilter(grf) => {
-                            let content = ":troll: **Gobblers Revealed** :troll:".to_string();
-                            let content = format!("{}\n{:#?}", content, grf);
+                            let content = format!(":troll: **Gobblers Revealed** :troll:\n{grf:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GobblersRevealedFilter: {:?}", res);
                         }
                         ArtGobblersEvents::RandomnessRequestedFilter(rrf) => {
-                            let content =
-                                ":game_die: **Randomness requested** :game_die:".to_string();
-                            let content = format!("{}\n{:#?}", content, rrf);
+                            let content = format!(":game_die: **Randomness requested** :game_die:\n{rrf:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent RandomnessRequestedFilter: {:?}", res);
                         }
                         ArtGobblersEvents::RandomnessFulfilledFilter(rff) => {
-                            let content =
-                                ":game_die: **Randomness fulfilled** :game_die:".to_string();
-                            let content = format!("{}\n{:#?}", content, rff);
+                            let content = format!(":game_die: **Randomness fulfilled** :game_die:\n{rff:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent RandomnessFulfilledFilter: {:?}", res);
                         }
                         ArtGobblersEvents::LegendaryGobblerMintedFilter(lgmf) => {
-                            let content = ":goat: **Legendary Gobbler Minted** :goat:".to_string();
-                            let content = format!("{}\n{:#?}", content, lgmf);
+                            let content = format!(":goat: **Legendary Gobbler Minted** :goat:\n{lgmf:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent LegendaryGobblerMintedFilter: {:?}", res);
                         }
@@ -157,18 +146,14 @@ async fn main() -> Result<()> {
                                 "to"
                             };
 
-                            let content = format!(
-                                ":handshake: **Goo Transfer {to_from} Watcher** :handshake:"
-                            );
-                            let content = format!("{}\n{:#?}", content, transfer);
+                            let content = format!(":handshake: **Goo Transfer {to_from} Watcher** :handshake:\n{transfer:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GooBalanceUpdatedFilter: {:?}", res);
                         }
                     }
                     GooEvents::ApprovalFilter(approval) => {
                         if approval.owner == watch_address || approval.spender == watch_address {
-                            let content = ":handshake: **Approval** :handshake:".to_string();
-                            let content = format!("{}\n{:#}", content, approval);
+                            let content = format!(":handshake: **Approval** :handshake:\n{approval:#}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GooBalanceUpdatedFilter: {:?}", res);
                         }
