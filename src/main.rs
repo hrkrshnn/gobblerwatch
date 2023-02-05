@@ -108,28 +108,34 @@ async fn main() -> Result<()> {
                         }
                         ArtGobblersEvents::GooBalanceUpdatedFilter(gbuf) => {
                             if gbuf.user == watch_address {
-                                let content = format!(":eyes: **Update of Watcher's goo balance** :eyes:\n{gbuf:#?}");
+                                let content = format!(
+                                    ":eyes: **Update of Watcher's goo balance** :eyes:\n{gbuf:#?}"
+                                );
                                 let res = discord.send(|message| message.content(&content)).await;
                                 info!("Sent GooBalanceUpdatedFilter: {:?}", res);
                             }
                         }
                         ArtGobblersEvents::GobblersRevealedFilter(grf) => {
-                            let content = format!(":troll: **Gobblers Revealed** :troll:\n{grf:#?}");
+                            let content =
+                                format!(":troll: **Gobblers Revealed** :troll:\n{grf:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GobblersRevealedFilter: {:?}", res);
                         }
                         ArtGobblersEvents::RandomnessRequestedFilter(rrf) => {
-                            let content = format!(":game_die: **Randomness requested** :game_die:\n{rrf:#?}");
+                            let content =
+                                format!(":game_die: **Randomness requested** :game_die:\n{rrf:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent RandomnessRequestedFilter: {:?}", res);
                         }
                         ArtGobblersEvents::RandomnessFulfilledFilter(rff) => {
-                            let content = format!(":game_die: **Randomness fulfilled** :game_die:\n{rff:#?}");
+                            let content =
+                                format!(":game_die: **Randomness fulfilled** :game_die:\n{rff:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent RandomnessFulfilledFilter: {:?}", res);
                         }
                         ArtGobblersEvents::LegendaryGobblerMintedFilter(lgmf) => {
-                            let content = format!(":goat: **Legendary Gobbler Minted** :goat:\n{lgmf:#?}");
+                            let content =
+                                format!(":goat: **Legendary Gobbler Minted** :goat:\n{lgmf:#?}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent LegendaryGobblerMintedFilter: {:?}", res);
                         }
@@ -153,7 +159,8 @@ async fn main() -> Result<()> {
                     }
                     GooEvents::ApprovalFilter(approval) => {
                         if approval.owner == watch_address || approval.spender == watch_address {
-                            let content = format!(":handshake: **Approval** :handshake:\n{approval:#}");
+                            let content =
+                                format!(":handshake: **Approval** :handshake:\n{approval:#}");
                             let res = discord.send(|message| message.content(&content)).await;
                             info!("Sent GooBalanceUpdatedFilter: {:?}", res);
                         }
